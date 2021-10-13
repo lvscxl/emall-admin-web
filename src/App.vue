@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    emall
+    emall-init
     <img src="./assets/logo.png">
     <router-view/>
   </div>
