@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    aas
     emall-init
     <img src="./assets/logo.png">
     <router-view/>

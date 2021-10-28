@@ -1,8 +1,10 @@
 <template>
     <div>
         <!-- 和呃呃呃 -->
+        
         <el-card>
-            <el-form :model="loginForm" ref="loginForm"
+            <el-form :model="loginForm"
+                     ref="loginForm"
                      :rules="loginRules"
                      label-position="left"
               >
@@ -75,7 +77,7 @@
 
 <script>
   import {isvalidUsername} from '@/utils/validate';
-  import {setSupport,getSupport,setCookie,getCookie} from '@/utils/support'
+  import {setSupport,getSupport,setCookie,getCookie} from '@/utils/support';
 export default {
     name: 'login',
     data() {
@@ -93,7 +95,7 @@ export default {
             }else{
                 callback()
             }
-        }
+        };
 
         return{
             loginForm: {
@@ -125,6 +127,14 @@ export default {
             this.$refs.loginForm.validate( valid => {
                 if(valid) {
                     console.log('asd')
+
+                    this.loading = true;
+                    this.$store.dispatch('Login', this.loginForm).then((res) => {
+                        this.loading =false;
+                    
+                        this.$router.push({path: '/'})
+                    }
+                    )
                 }
             })
 

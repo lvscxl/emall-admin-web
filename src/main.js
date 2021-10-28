@@ -13,7 +13,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 // import '@/styles/index.scss'
 
-// import store from './store'
+import store from './store'
 
 
 import '@/icons' // icon
@@ -26,6 +26,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
