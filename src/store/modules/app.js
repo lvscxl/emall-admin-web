@@ -1,28 +1,42 @@
-export default {
-    state: {
-        appName: "Kitty Platform",  // 应用名称
-        themeColor: "#14889A",  // 主题颜色
-        oldThemeColor: "#14889A",   // 上一次主题颜色
-        collapse:false,  // 导航栏收缩状态
-        menuRouteLoaded:false    // 菜单和路由是否已经加载
+import Cookies from 'js-cookie'
+
+const app = {
+  state: {
+    sidebar: {
+      opened: !+Cookies.get('sidebarStatus'),
+      withoutAnimation: false
     },
-    getters: {
-        collapse(state){// 对应着上面state
-            return state.collapse
-        }
+    device: 'desktop'
+  },
+  mutations: {
+    TOGGLE_SIDEBAR: state => {
+      if (state.sidebar.opened) {
+        Cookies.set('sidebarStatus', 1)
+      } else {
+        Cookies.set('sidebarStatus', 0)
+      }
+      state.sidebar.opened = !state.sidebar.opened
     },
-    mutations: {
-        onCollapse(state){  // 改变收缩状态
-            state.collapse = !state.collapse
-        },
-        setThemeColor(state, themeColor){  // 改变主题颜色
-            state.oldThemeColor = state.themeColor
-            state.themeColor = themeColor
-        },
-        menuRouteLoaded(state, menuRouteLoaded){  // 改变菜单和路由的加载状态
-            state.menuRouteLoaded = menuRouteLoaded;
-        }
+    CLOSE_SIDEBAR: (state, withoutAnimation) => {
+      Cookies.set('sidebarStatus', 1)
+      state.sidebar.opened = false
+      state.sidebar.withoutAnimation = withoutAnimation
     },
-    actions: {
+    TOGGLE_DEVICE: (state, device) => {
+      state.device = device
     }
+  },
+  actions: {
+    ToggleSideBar: ({ commit }) => {
+      commit('TOGGLE_SIDEBAR')
+    },
+    CloseSideBar({ commit }, { withoutAnimation }) {
+      commit('CLOSE_SIDEBAR', withoutAnimation)
+    },
+    ToggleDevice({ commit }, device) {
+      commit('TOGGLE_DEVICE', device)
+    }
+  }
 }
+
+export default app

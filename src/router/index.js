@@ -34,7 +34,20 @@ export const constantRouterMap = [
   }
 ]
 
-
+export const asyncRouterMap = [
+  {
+    path: '/pms',
+    component: Layout,
+    redirect: '/pms/product',
+    name: 'pms',
+    meta: {title: '商品', icon: 'product'},
+    children: [{
+      path: 'product',
+      name: 'product',
+      component: () => import('@/views/pms/product/index'),
+      meta: {title: '商品列表', icon: 'product-list'}
+    }]
+  }]
 export default new Router({
   // mode: 'history', //后端支持可开
   scrollBehavior: () => ({y: 0}),
