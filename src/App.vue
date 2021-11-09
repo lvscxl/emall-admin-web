@@ -2,7 +2,7 @@
   <div id="app">
     aas
     emall-init
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
 </template>
