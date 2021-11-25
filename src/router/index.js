@@ -41,12 +41,41 @@ export const asyncRouterMap = [
     redirect: '/pms/product',
     name: 'pms',
     meta: {title: '商品', icon: 'product'},
-    children: [{
+    children: [
+      {
       path: 'product',
       name: 'product',
       component: () => import('@/views/pms/product/index'),
       meta: {title: '商品列表', icon: 'product-list'}
-    }]
+    },
+    {
+      path: 'productAttr',
+      name: 'productAttr',
+      component: () => import('@/views/pms/productAttr/index'),
+      meta: {title: '商品类型', icon: 'product-attr'}
+    },
+    
+      {
+        path: 'productAttrList',
+        name: 'productAttrList',
+        component: () => import('@/views/pms/productAttr/productAttrList'),
+        meta: {title: '商品属性列表'},
+        hidden: true
+      },
+  
+    {
+      path: 'addProductAttr',
+      name: 'addProductAttr',
+      component: () => import('@/views/pms/productAttr/addProductAttr'),
+      meta: {title: '添加商品属性'}
+    },
+    {
+      path: 'updateProductAttr',
+      name: 'updateProductAttr',
+      component: () => import('@/views/pms/productAttr/updateProductAttr'),
+      meta: {title: '修改商品属性'}
+    }
+  ]
   }]
 export default new Router({
   // mode: 'history', //后端支持可开

@@ -459,7 +459,7 @@ export default {
                            }
                        }
                        this.productCateOptions.push({
-                           label: list[i].namem, value: list[i].id, children: children
+                           label: list[i].name, value: list[i].id, children: children
                        });
                    }
                })
@@ -523,7 +523,7 @@ export default {
                 this.$router.push({path:'/pms/addProduct'});
             },
 
-             handleBatchOperate() {
+            handleBatchOperate() {
                 if(this.operateType==null){
                 this.$message({
                     message: '请选择操作类型',
@@ -578,9 +578,9 @@ export default {
                 }
                 this.getList();
                 });
-             },
+            },
 
-             handleSizeChange(val) {
+                handleSizeChange(val) {
                     this.listQuery.pageNum = 1;
                     this.listQuery.pageSize = val;
                     this.getList();
