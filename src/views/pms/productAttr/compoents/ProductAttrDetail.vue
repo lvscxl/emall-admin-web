@@ -2,7 +2,7 @@
     <el-card class="form-container" shadow="never">
         <el-form :model="productAttr" :rules="rules" ref="productAttrFrom">
             <el-form-item label="属性名称: " prop="name">
-                <el-input v-model="productAttr.name">
+                <el-input v-model="productAttr.name"></el-input>
             </el-form-item>
             <el-form-item label="商品类型：">
                 <el-select v-model="productAttr.productAttributeCategoryId">
