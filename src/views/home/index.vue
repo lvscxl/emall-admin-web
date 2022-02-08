@@ -230,12 +230,13 @@
               :picker-options="pickerOptions">
             </el-date-picker>
             <div>
-              <ve-line
+              <!-- <ve-line
                 :data="chartData"
                 :legend-visible="false"
                 :loading="loading"
                 :data-empty="dataEmpty"
-                :settings="chartSettings"></ve-line>
+                :settings="chartSettings">
+                </ve-line> -->
             </div>
           </div>
         </el-col>

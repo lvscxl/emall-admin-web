@@ -2,7 +2,7 @@
     <div>
         <!-- 和呃呃呃 -->
         
-        <el-card>
+        <el-card class="login-form-layout">
             <el-form :model="loginForm"
                      ref="loginForm"
                      :rules="loginRules"

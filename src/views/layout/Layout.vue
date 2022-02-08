@@ -1,10 +1,11 @@
 <template>
-    <div>
+    <div class="app-wrapper" :class="classObj">
         <!-- <sidebar class="sidebar-container"></sidebar> -->
         <sidebar class="sidebar-container"></sidebar>
-        <div>
+        <div class="main-container">
             home页
             <!-- <NavBar></NavBar> -->
+            <navbar></navbar>
              <app-main></app-main>
         </div>
     </div>
@@ -15,14 +16,18 @@
 import Sidebar  from './components/Sidebar/index'
 import AppMain  from './components/AppMain'
 // import  Sidebar  from './components/Sidebar/Sidebar'
+
+import Navbar  from './components/Navbar'
+
+import ResizeMixin from './mixin/ResizeHandler'
 export default {
-     name: "layout"
-     ,
+     name: "layout",
      components: {
-     
+         Navbar,
          Sidebar,
          AppMain
      },
+      mixins: [ResizeMixin],
   computed: {
     sidebar() {
       return this.$store.state.app.sidebar
